@@ -1,5 +1,5 @@
-from .graph import *
-from .node import *
+from lib.graph import *
+from lib.node import *
 
 import os
 import math
@@ -33,7 +33,7 @@ def read_graph_from_file(file_name):
         pos = lines[line_idx+1].split(",")
         latitude = pos[0]
         longitude = pos[1].strip("\n")
-        node = Node(name, float(latitude), float(longitude))
+        node = Node(i, name, float(latitude), float(longitude))
         node_list.append(node)
         line_idx+= 2
     
@@ -44,6 +44,9 @@ def read_graph_from_file(file_name):
         for j in range (len(curr_node_neighbours)):
             if (int(curr_node_neighbours[j]) == 1):
                 curr_node_neighbours[j] = calc_haversine_dist(node_list[curr_node], node_list[j])
+            else:
+                curr_node_neighbours[j] = -1
+
         adjmatrix.append(curr_node_neighbours)
         line_idx+=1
         curr_node+=1
