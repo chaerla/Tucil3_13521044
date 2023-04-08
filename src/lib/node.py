@@ -6,8 +6,9 @@ class Node:
         __latitude: the latitude of the location
         __longitude: the longitude of the location
         __index: the index (acts as an id for the node)
+        __heuristic: the perpendicular distance from a node to goal node (used in A* algorithm)
     """
-    def __init__(self, index, name, latitude, longitude):
+    def __init__(self, index, name, latitude, longitude, heuristic):
         """
         initialize a Node
         """
@@ -15,6 +16,7 @@ class Node:
         self.__latitude = latitude
         self.__longitude = longitude
         self.__index = index
+        self.__heuristic = heuristic
     
     def latitude(self):
         return self.__latitude
@@ -27,7 +29,13 @@ class Node:
 
     def index(self):
         return self.__index
+
+    def heuristic(self):
+        return self.__heuristic
     
+    def set_heuristic(self, heuristic):
+        self.__heuristic = heuristic
+
     def show(self):
         """
         prints a node with format

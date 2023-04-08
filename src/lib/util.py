@@ -33,7 +33,7 @@ def read_graph_from_file(file_name):
         pos = lines[line_idx+1].split(",")
         latitude = pos[0]
         longitude = pos[1].strip("\n")
-        node = Node(i, name, float(latitude), float(longitude))
+        node = Node(i, name, float(latitude), float(longitude),0)
         node_list.append(node)
         line_idx+= 2
     
