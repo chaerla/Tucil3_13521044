@@ -42,10 +42,14 @@ def read_graph_from_file(file_name):
         curr_node_neighbours = lines[line_idx].strip("\n").split(" ")
         print(curr_node_neighbours)
         for j in range (len(curr_node_neighbours)):
-            if (int(curr_node_neighbours[j]) == 1):
-                curr_node_neighbours[j] = calc_haversine_dist(node_list[curr_node], node_list[j])
+            # if (int(curr_node_neighbours[j]) == 1):
+            #     curr_node_neighbours[j] = calc_haversine_dist(node_list[curr_node], node_list[j])
+            # else:
+            #     curr_node_neighbours[j] = -1
+            if(float(curr_node_neighbours[j]) != float(0)):
+                curr_node_neighbours[j] = float(curr_node_neighbours[j])
             else:
-                curr_node_neighbours[j] = -1
+                curr_node_neighbours[j] = float(-1)
 
         adjmatrix.append(curr_node_neighbours)
         line_idx+=1
