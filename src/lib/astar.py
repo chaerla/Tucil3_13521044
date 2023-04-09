@@ -45,17 +45,7 @@ def astar(start: Node, goal: Node, graph: Graph):
         "success"   : False
     }
 
-    """ 
-    initialize flag that will be used in the algorithm
-        found               : to indicate whether the goal has been reached or not
-        shortest_distance   : to indicate whether the cost to reach the goal has been minimum or not
-        found_shortest      : to indicate whether the goal has been reached and the distance has been minimum or not
-    """
-    found = False
-    shortest_distance = False
-    found_shortest = found and shortest_distance
-
-    while(len(queue) > 0 and not found_shortest):
+    while(len(queue) > 0):
         queue = sorted(queue, key=lambda x: x["prediction_cost"])
 
         # the current node to check
@@ -66,37 +56,14 @@ def astar(start: Node, goal: Node, graph: Graph):
             "prediction_cost"   : queue[0]["prediction_cost"]
         }
 
-        # check if the current node is the goal
+        # check if current node is goal, the first found is guaranteed to be the minimum
         if(curr["node"].index() == goal.index()):
-            
-            # if already found, maybe the answer is not minimum yet
-            if(found):
-                if(curr["cost_so_far"] < answer["cost"]):
-                    answer["cost"] = curr["cost_so_far"]
-            else:
-                answer["cost"] = curr["cost_so_far"]
-                answer["path"] = curr["path"]
-            
-            found = True
-
-            # check whether the cost is definitely minimum or not to make sure we found the minimum distance
-            if(len(queue) > 1): # checks if the next element in the queue might return the shortest distance
-                shortest_distance = (curr["cost_so_far"] < queue[1]["prediction_cost"])
-            else: # if curr is the last element in the queue then the cost must be minimum
-                shortest_distance = True
-
-            found_shortest = found and shortest_distance
-
-            answer["success"] = found_shortest
-
-            if(found_shortest):
-                return answer
-
-        # checks whether the element currently in the queue is unlikely to produce a shorter distance than the existing solution
-        if(found):
-            if(curr["prediction_cost"] > answer["cost"]):
-                answer["success"] = True
-                return answer
+            answer = {
+                "cost": curr["cost_so_far"],
+                "path": curr["path"],
+                "success": True
+            }
+            return answer 
 
         # expands the node, push all its neighbours to the priority queue
         for i in range(len(graph.adjmatrix()[curr["node"].index()])):
@@ -111,11 +78,7 @@ def astar(start: Node, goal: Node, graph: Graph):
                         "cost_so_far"       : cost_so_far,
                         "prediction_cost"   : cost_so_far + graph.nodes()[i].heuristic()
                     }
-                    if(found): 
-                        if(temp["prediction_cost"] <= answer["cost"]): # checks whether the expanded node may produce a more minimal solution
-                            queue.append(temp)
-                    else:
-                        queue.append(temp)
+                    queue.append(temp)
                 
         # remove the first element from the queue
         del queue[0]

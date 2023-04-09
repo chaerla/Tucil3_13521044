@@ -40,7 +40,7 @@ def read_graph_from_file(file_name):
     curr_node = 0
     for i in range (nodes_count):
         curr_node_neighbours = lines[line_idx].strip("\n").split(" ")
-        print(curr_node_neighbours)
+        # print(curr_node_neighbours)
         for j in range (len(curr_node_neighbours)):
             # if (int(curr_node_neighbours[j]) == 1):
             #     curr_node_neighbours[j] = calc_haversine_dist(node_list[curr_node], node_list[j])
@@ -57,3 +57,9 @@ def read_graph_from_file(file_name):
     
     return Graph(node_list, adjmatrix)
 
+
+def get_node_idx_from_name(node_name: str, graph: Graph):
+    for i in range(len(graph.nodes())):
+        if(graph.nodes()[i].name() == node_name):
+            return graph.nodes()[i].index()
+    return -1
