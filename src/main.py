@@ -3,30 +3,7 @@ from lib.ucs import *
 from lib.astar import *
 from lib.IO import *
 
-# graph = read_graph_from_file("Alun Alun Kota Bandung")
-# # graph.show()
-
-# print()
-# ans = ucs(graph.nodes()[6], graph.nodes()[len(graph.adjmatrix())-1], graph)
-# if(ans["success"]):
-#     for node in ans["path"]:
-#         print(node.name())
-#     print(ans["cost"])
-# else:
-#     print("Fail bang")
-
-# print()
-
-# ans2 = astar(graph.nodes()[6], graph.nodes()[len(graph.adjmatrix())-1], graph)
-# if(ans2["success"]):
-#     for node in ans2["path"]:
-#         print(node.name())
-#     print(ans2["cost"])
-# else:
-#     print("Fail bang")
-
-def main():
-    
+def start_program():
     print_welcome_screen()
     keep_playing = True
 
@@ -71,13 +48,5 @@ def main():
         
     print_exit_screen()
 
-main()
-
-# graph = create_graph_from_input_file()
-# start_index = ask_start_node(graph)
-# goal_index = ask_goal_node(graph)
-
-# ans = ucs(graph.nodes()[start_index], graph.nodes()[goal_index], graph)
-# ans2 = ucs(graph.nodes()[start_index], graph.nodes()[goal_index], graph)
-# print_answer(ans)
-# print_answer(ans2)
+if __name__ == '__main__':
+    start_program()
