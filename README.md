@@ -11,11 +11,14 @@ This project is a Python project that implements UCS and A* algorithm to find sh
 The UCS (Uniform Cost Search) and A* (or A-star) algorithms can be used to determine the shortest path from one point to another. This can be used to find the shortest path between two locations in the streets of Bandung City. The streets in Bandung can be represented as a weighted graph where road intersections become nodes. Interconnected road intersections are then depicted as graph edges with their distances as weights in km. This problem is solved by creating a simple program that contains a .txt file containing intersection points on the streets of Bandung City.
 
 The program can accept a .txt file in the following format:
-The first line contains n, the number of locations (nodes).
-Line ke-(2i) contains the name of the location (node), and line ke-(2i+1) contains the coordinates (latitude, longitude) separated by commas (without spaces between them). With 0 < i ≤ n.
-The next n lines are a weighted adjacency matrix that shows the neighboring nodes.
+1. The first line contains n, the number of locations (nodes).
+2. Line (2i)-th contains the name of the location (node), and line (2i+1)-th contains the coordinates (latitude, longitude) separated by commas (without spaces between them). With 0 < i ≤ n.
+3. The next n lines are a weighted adjacency matrix that shows the neighboring nodes.
+ 
 The input file example can be seen in `test` folder.
+
 The user can then choose which algorithm to use to solve the problem.
+
 This project can also visualized the map inputted by the user if run through app.py
 
 This project is built to meet the following [guidelines](https://informatika.stei.itb.ac.id/~rinaldi.munir/Stmik/2022-2023/Tucil3-Stima-2023.pdf).
