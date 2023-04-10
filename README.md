@@ -47,18 +47,23 @@ This project is built to meet the following [guidelines](https://informatika.ste
 ![image](https://user-images.githubusercontent.com/91037907/230952814-ba55f077-742d-47e3-bed1-ef7093ab1222.png)
 
 4. Insert the file name along with the extension (relative to the test folder)
+
 ![image](https://user-images.githubusercontent.com/91037907/230952918-f66c7ccf-a9d9-401d-9a42-8f741a959c3c.png)
 
 5. Pick the start and goal node
+
 ![image](https://user-images.githubusercontent.com/91037907/230953005-87373c47-d6e1-4f27-b81b-a8f0dde30793.png)
 
 6. Pick the algorithm to use
+
 ![image](https://user-images.githubusercontent.com/91037907/230953104-053a7814-c429-413a-8c33-b24d7454e19d.png)
 
 7. The path and distance will be shown
+
 ![image](https://user-images.githubusercontent.com/91037907/230953152-aec6a17b-9640-4ef3-92cd-aaa4dd4ecec5.png)
 
 8. Open localhost in a browser to look at the visualization
+
 ![image](https://user-images.githubusercontent.com/91037907/230953236-a8a59c39-dc4a-4c70-9bd5-aa50e5984f22.png)
 
 
