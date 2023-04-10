@@ -1,10 +1,11 @@
 from lib.graph import *
 from lib.node import *
-
-import os
 import math
 
 def calc_haversine_dist(pos1: Node, pos2: Node):
+    """
+    calculate the haversine distance between two nodes
+    """
     r = 6371  # radius of the Earth in kilometers
     phi1 = math.radians(pos1.latitude())
     phi2 = math.radians(pos2.latitude())
@@ -15,12 +16,10 @@ def calc_haversine_dist(pos1: Node, pos2: Node):
     return r*c
 
 def read_graph_from_file(file_name):
-
     """
     reads and parses a graph from a file
     """
-    f = open(f"../test/{file_name}.txt", "r") # should run from src
-
+    f = open(f"test/{file_name}", "r") # should run from root
     lines = f.readlines()
 
     nodes_count = int(lines[0])

@@ -41,6 +41,6 @@ class Node:
         prints a node with format
         {[index]} {name} ({latitude}, {longitude})
         """
-        print("[" + str(self.__index) + "]" + self.__name + " (" + str(self.__longitude) + ", " + str(self.__latitude) + ")")
+        print("[" + str(self.__index+1) + "]" + self.__name + " (" + str(self.__longitude) + ", " + str(self.__latitude) + ")")
     
         

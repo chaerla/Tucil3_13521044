@@ -32,7 +32,7 @@ class Graph:
         """
         for node in self.__nodes:
             node.show()
-        for row in self.__adjmatrix:
-            for col in row:
-                print(col, end=" ")
-            print()
+        # for row in self.__adjmatrix:
+        #     for col in row:
+        #         print(col, end=" ")
+        #     print()
