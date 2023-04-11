@@ -11,13 +11,23 @@ result = None
 def index():
     graph = result["graph"]
     path = result["path"]
+    start_index = result["start_index"]
+    goal_index = result["goal_index"]
     # Create the map
     m = folium.Map(location=[graph.nodes()[0].latitude(), graph.nodes()[0].longitude()], zoom_start=16)
 
     # Add markers to the map
     marker_cluster = MarkerCluster().add_to(m)
     for node in graph.nodes():
-        folium.Marker(location=[node.latitude(), node.longitude()], popup=str(node.index() + 1)).add_to(marker_cluster)
+        if(node.index() == start_index):
+            colors = "blue"
+        elif(node.index() == goal_index):
+            colors = "red"
+        else:
+            colors = "orange"
+
+        folium.Marker(location=[node.latitude(), node.longitude()], popup=str(node.index() + 1) + '. ' + node.name(), icon=folium.Icon(color=colors)).add_to(marker_cluster)
+        
     # Add polylines to the map based on the adjacency matrix
     for i in range(len(graph.adjmatrix())):
         for j in range(i+1, len(graph.adjmatrix()[i])):
@@ -45,5 +55,7 @@ if __name__ == '__main__':
     print_answer(ans)
     print("Map hasil visualisasi graf dapat dilihat pada localhost:5000")
     ans["graph"] = graph
+    ans["start_index"] = start_index
+    ans["goal_index"] = goal_index
     result = ans
     app.run(debug=False)
