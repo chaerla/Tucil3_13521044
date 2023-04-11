@@ -39,8 +39,9 @@ def read_graph_from_file(file_name):
     curr_node = 0
     for i in range (nodes_count):
         curr_node_neighbours = lines[line_idx].strip("\n").split(" ")
+        print(curr_node_neighbours)
         # print(curr_node_neighbours)
-        for j in range (len(curr_node_neighbours)):
+        for j in range (nodes_count):
             # if (int(curr_node_neighbours[j]) == 1):
             #     curr_node_neighbours[j] = calc_haversine_dist(node_list[curr_node], node_list[j])
             # else:

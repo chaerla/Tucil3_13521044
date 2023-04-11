@@ -48,13 +48,13 @@ def create_graph_from_input_file():
     correct_input = False
     while(not correct_input):
         try:
-            file_name = input("Masukkan nama file: ")
+            file_name = input("Masukkan nama file (dalam folder test): ")
             print(file_name)
             graph = read_graph_from_file(file_name)
             print("Graph berhasil dibaca dari file input.")
             correct_input = True
         except:
-            print("File tidak ditemukan!")
+            print("Terjadi kesalahan saat membaca file! Pastikan anda memasukkan file yang benar")
     
     return graph
 
