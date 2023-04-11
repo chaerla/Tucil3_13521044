@@ -42,7 +42,7 @@ def ask_algorithm():
         except:
             print("Input tidak valid!")
     
-    return action
+    return int(action)
 
 def create_graph_from_input_file():
     correct_input = False
