@@ -8,7 +8,7 @@ def print_welcome_screen():
     welcome_text = pyfiglet.figlet_format("Path Finder App")
     print(welcome_text)
     print()
-    print('#' * 70)
+    print('#' * 75)
     print()
 
 def print_exit_screen():
@@ -77,8 +77,8 @@ def ask_start_node(graph: Graph):
     return start-1
 
 def ask_goal_node(graph: Graph):
-    graph.show()
-    print()
+    # graph.show()
+    # print()
     goal = (input(f"Pilih titik tujuan [1-{len(graph.nodes())}]: "))
     print()
     try:
