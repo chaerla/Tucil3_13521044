@@ -34,8 +34,9 @@ def index():
             if graph.adjmatrix()[i][j] != -1:
                 line = PolyLine(locations=[[graph.nodes()[i].latitude(), graph.nodes()[i].longitude()], (graph.nodes()[j].latitude(), graph.nodes()[j].longitude())], color='red', weight=5, opacity=0.7).add_to(m)
     # Add polylines to the map based on the result path
-    for i in range(len(path)-1):
-        line = PolyLine(locations=[[path[i].latitude(), path[i].longitude()], (path[i+1].latitude(), path[i+1].longitude())], color='green', weight=5, opacity=0.7).add_to(m)
+    if(result["success"]):
+        for i in range(len(path)-1):
+            line = PolyLine(locations=[[path[i].latitude(), path[i].longitude()], (path[i+1].latitude(), path[i+1].longitude())], color='green', weight=5, opacity=0.7).add_to(m)
     # Return the map
     return m._repr_html_()
 
